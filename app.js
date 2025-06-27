@@ -1,22 +1,35 @@
-import express from 'express';
-import path from 'path';
-import url from 'url';
-const PORT = 8000;
-const app = express();
+import express from "express";
+import path from "path";
+import url from "url";
+const PORT = process.env.PORT || 5000;
 
-// LOCATION 
+const app = express();
+const notes = [];
 const __fileName = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__fileName);
-
-// SETUP EJS 
+// EJS CONFIG 
 app.set('view engine', 'ejs');
-app.set('views', 'views');
+app.set('views', "note-app");
 
-// MiddleWare body 
-app.use(express.urlencoded({extended: true}));
+// Body Middleware
+app.use(express.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
+// RENDER NOTE APP
+app.get('/notes', (req, res)=>{
+    res.render('notes', {notes, error:null});
+})
+// ADD NOTE 
+app.post('/add', (req, res)=>{
+    const { topic, note } = req.body;
+    if(note){
+        notes.push({topic, note});
+    }else{
+        return res.render('notes', {notes, error: 'Please add your note!'})
+    }
+    res.redirect('/notes');
+})
 
 
 app.listen(PORT, ()=>{
-    console.log(`Server is running on PORT ${PORT}`);
+    console.log(`http://locahost:${PORT}/notes`);
 })

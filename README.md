@@ -55,7 +55,7 @@ node app.js
 ```
 4. **Open in browser**
 ```
-http://localhost:5000
+http://localhost:5000/notes
 ```
 
 ✅ Use Cases

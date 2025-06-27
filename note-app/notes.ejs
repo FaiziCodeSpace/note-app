@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOTE-APP</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    
+    <!-- NOTE APP FORM-->
+     <div class="main-form">
+     <form class="myNotes-form" action="/add" method="POST">
+        <input type="text" name="topic" placeholder="Enter your topic"><br>
+        <textarea name="note" placeholder="ADD YOUR NOTE" required></textarea><br>
+        <button type="submit">ADD NOTE</button>
+     </form>
+    </div>
+
+     <div class="myNotes">
+            <% notes.forEach(n => {%>
+                <div class="note-box">
+                <h1><%= n.topic%></h1>
+                <p><%= n.note%></p>
+                </div>
+            <%})%>
+     </div>
+     
+</body>
+</html>

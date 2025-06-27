@@ -1,0 +1,87 @@
+*{
+    margin: none;
+    padding: none;
+    background-color: #28282B;
+}
+.main-form{
+  justify-content: center;
+  display: flex;
+  width: 100%;
+}
+.myNotes-form{
+    display: flex;
+    flex-direction: column;
+    width: 40rem;
+    justify-content: center;
+    
+}
+
+.myNotes-form input{
+    padding: 10px 0px;
+    text-align: center;
+}
+
+.myNotes-form input,textarea{
+    width: 100%;
+    border:  3px solid white;
+    border-radius: 5px;
+    color: white;
+}
+
+textarea:focus,
+input:focus{
+  background-color: orange;
+}
+textarea:valid,
+input:valid{
+  border-color: orange;
+}
+
+.myNotes-form button{
+    background-color: black;
+    color: orange;
+    padding: 20px;
+    border: none;
+    &:hover{
+      transform: scale(1.04);      
+    }
+}
+
+/* /////////// */
+
+.myNotes{
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .note-box {
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid orange;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 1px 25px  10px;
+    margin-top: 20px;
+  }
+  
+  .note-box h1,p{
+    background-color: white;
+    color: #222;
+  }
+  
+  .note-box li{
+    background-color: white;
+    font-size: 16px;
+    color: #444;
+  }
+  .note-box ul li{
+    display: flex;
+    flex-direction: row;
+  }
+  .myNotes {
+    display: flex;
+    flex-wrap: wrap;         /* allows wrapping */
+    gap: 20px;
+    padding: 20px;
+    justify-content: center; /* centers the wrapped rows */
+  }
+  
